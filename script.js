@@ -15,13 +15,11 @@ const TUFALIEN = {
   name: "TUFALIEN",
   avatar: "img/tufalien.png",
   messages: [
-    "Ragazzi...",
-    "Questa cosa va approfondita.",
-    "Interessante.",
-    "Non mi convince.",
-    "Dovete osare.",
-    "Qui manca un livello di ricerca.",
-    "Proviamo a guardarla da un'altra angolazione."
+    "Muoviti, sùrice, ca 'a gatta corre!",
+    "Dicette 'o pappice vicino a 'o noce: Ramm' 'o tiemp' ca te spertose",
+    "Chi dorme piscia a lietto e dice ca ha sudato.",
+    "Chi strapazza 'o faticà, strapazza 'a vita.",
+    "Fatica e stenta per arrivare a i' 'eccellenza."
   ]
 };
 
