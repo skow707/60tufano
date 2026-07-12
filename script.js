@@ -165,6 +165,26 @@ const PREVIEW_ALIENS = [
       "Dicono che chi nasce nell’anno del Cavallo sia instancabile e con un grande senso dell’umorismo. La tradizione cinese non ha considerato anche che trova sempre una soluzione … e poi riesce pure a farci una battuta!",
       "Continui a fare la cosa più rivoluzionaria di tutte, condividere non solo conoscenza ma anche umanità… una cosa ormai rara e prima o poi qualcuno proverà a trasformarla in un abbonamento 😉 Doctorow non approverebbe ❤️."
     ]
+  },
+  {
+    "name": "Alessandro",
+    "avatar": "img/alessandro.png",
+    "messages": [
+      "Già come mago silvano,\n unisce il codice al gesto umano.\n Là n.T.i., qui N.T.A.: chi osserva impara,\n chi crea prepara;\nsi mettono in libertà\n e tu fanno il resto con mano."
+    ]
+  },
+   {
+    "name": "Zappone",
+    "avatar": "img/zappone.png",
+    "messages": [
+      "Per Tufano, brindisi al volo con il calice in mano: Allerta caldo, fuori si schiatta. Prendo un bianco dal frigo, dentro lo studio che è una stufa. Brindisi faccio al Tufa. 🥂"
+    ]
+  },
+  { "name": "Sara B.",
+    "avatar": "img/sarab.png",
+    "messages": [
+      "Trasmissione intergalattica in arrivo... 👾 Tanti auguri di buon compleanno! Da oggi ha ufficialmente raggiunto il livello +1 di esperienza. \n Skill sbloccata: sopravvivere con stile 😎 \n Dopo aver analizzato l'intero pianeta Terra, il Consiglio Galattico è giunto alla conclusione che è tra gli umani più interessanti in circolazione. Che il suo upgrade prosegua senza bug e ancora tantissimi auguri! 🚀😘"
+    ]
   }
 ];
 
