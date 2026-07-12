@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Alien Transmission System - archivio galattico NTA per il 60esimo compleanno del Prof. Tufano.">
+    <title>Alien Transmission System 6.0</title>
+    <link rel="icon" href="assets/avatars/tufalien.png" type="image/png">
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <main class="experience" aria-label="Alien Transmission System">
+      <div class="space-field" aria-hidden="true">
+        <div class="star-layer star-layer-one"></div>
+        <div class="star-layer star-layer-two"></div>
+        <div class="ship-lane" data-ships></div>
+        <div class="ambient-particles" data-particles></div>
+      </div>
+
+      <section class="macintosh" aria-label="Vecchio Macintosh acceso">
+        <div class="macintosh-top">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+
+        <div class="monitor">
+          <div class="screen" id="crtScreen">
+            <div class="screen-flash" aria-hidden="true"></div>
+            <div class="scanlines" aria-hidden="true"></div>
+            <div class="pixel-noise" aria-hidden="true"></div>
+
+            <section class="scene boot-scene is-active" id="bootScene" aria-labelledby="bootTitle" aria-hidden="false">
+              <div class="boot-header" aria-hidden="true">
+                <span class="boot-dot"></span>
+                <span class="boot-dot"></span>
+                <span class="boot-dot"></span>
+              </div>
+
+              <div class="boot-content">
+                <p class="system-label">Macintosh System 7 / Deep Space Receiver</p>
+                <h1 id="bootTitle">ALIEN TRANSMISSION SYSTEM</h1>
+                <p class="version">Version 6.0</p>
+                <pre id="bootCopy" class="boot-copy" aria-live="polite"></pre>
+                <button class="mac-button primary-button" id="startButton" type="button" disabled>
+                  INIZIA LA TRASMISSIONE
+                </button>
+              </div>
+            </section>
+
+            <section class="scene transmission-scene" id="transmissionScene" aria-labelledby="windowTitle" aria-live="polite" aria-hidden="true">
+              <div class="mac-window main-window" id="mainWindow">
+                <header class="window-titlebar">
+                  <span class="window-grip" aria-hidden="true"></span>
+                  <h2 id="windowTitle">NTA SIGNAL RECEIVER</h2>
+                  <span class="window-box" aria-hidden="true"></span>
+                </header>
+
+                <div class="receiver-status" aria-label="Stato della trasmissione">
+                  <span id="signalLabel">SIGNAL 001</span>
+                  <span id="frequencyLabel">60.0 MHz</span>
+                </div>
+
+                <article class="alien-card">
+                  <figure class="avatar-frame">
+                    <img id="alienAvatar" src="assets/avatars/veronica.png" alt="Avatar alieno">
+                  </figure>
+                  <p class="alien-name" id="alienName">VERONICA</p>
+                  <blockquote class="alien-message" id="alienMessage">
+                    Sincronizzazione archivio galattico in corso...
+                  </blockquote>
+                </article>
+
+                <footer class="window-actions">
+                  <button class="mac-button next-button" id="nextButton" type="button">
+                    INTERCETTA UN'ALTRA FREQUENZA
+                  </button>
+                </footer>
+              </div>
+            </section>
+
+            <section class="tufalien-overlay" id="tufalienOverlay" aria-labelledby="tufalienTitle" aria-modal="true" role="dialog" hidden>
+              <div class="mac-window tufalien-window" id="tufalienWindow">
+                <header class="window-titlebar tufalien-titlebar">
+                  <span class="window-grip" aria-hidden="true"></span>
+                  <h2 id="tufalienTitle">⚠ INTERFERENZA GALATTICA</h2>
+                  <button class="window-close" id="closeTufalien" type="button" aria-label="Chiudi interferenza"></button>
+                </header>
+                <article class="tufalien-content">
+                  <figure class="avatar-frame tufalien-avatar">
+                    <img id="tufalienAvatar" src="assets/avatars/tufalien.png" alt="Avatar TUFALIEN">
+                  </figure>
+                  <p class="alien-name">TUFALIEN</p>
+                  <blockquote class="alien-message tufalien-message" id="tufalienMessage">
+                    Ragazzi...
+                  </blockquote>
+                </article>
+              </div>
+            </section>
+          </div>
+        </div>
+
+        <div class="macintosh-base" aria-hidden="true">
+          <div class="floppy-slot"></div>
+          <div class="speaker-grid">
+            <span></span><span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span><span></span><span></span>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <noscript>
+      <p>Alien Transmission System richiede JavaScript per intercettare le trasmissioni.</p>
+    </noscript>
+
+    <script src="script.js" defer></script>
+  </body>
+</html>

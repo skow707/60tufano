@@ -1,0 +1,43 @@
+[
+  {
+    "name": "Veronica",
+    "avatar": "assets/avatars/veronica.png",
+    "messages": [
+      "Prof, abbiamo intercettato i suoi 60 anni su una frequenza rarissima: nostalgia, ricerca e un po' di glitch.",
+      "Dal pianeta NTA arrivano auguri luminosi: continui a farci domande strane, sono quelle che aprono le orbite migliori.",
+      "Segnale ricevuto: grazie per averci insegnato che un progetto può anche sbagliare strada, purché lo faccia con intenzione."
+    ]
+  },
+  {
+    "name": "NTA-01",
+    "avatar": "assets/avatars/nta-01.png",
+    "messages": [
+      "Abbiamo analizzato il laboratorio: contiene tracce di ironia, pixel ostinati e una quantità sospetta di idee ancora vive.",
+      "Per i suoi 60 anni le inviamo un file cosmico in formato non supportato. Naturalmente è la parte più interessante."
+    ]
+  },
+  {
+    "name": "Mira",
+    "avatar": "assets/avatars/mira.png",
+    "messages": [
+      "Auguri Prof. Tufano. Che ogni nuova orbita porti con sé una domanda migliore della risposta.",
+      "La civiltà di Mira conferma: la meraviglia resta il miglior software di bordo."
+    ]
+  },
+  {
+    "name": "Pixel-7",
+    "avatar": "assets/avatars/pixel-7.png",
+    "messages": [
+      "Trasmissione compressa in 8 bit: tanti auguri, Prof. Il segnale è piccolo, ma il pensiero è enorme.",
+      "Ho provato a renderizzare un augurio perfetto. Poi ho aggiunto un errore: adesso funziona meglio."
+    ]
+  },
+  {
+    "name": "Luma",
+    "avatar": "assets/avatars/luma.png",
+    "messages": [
+      "Dal lato chiaro della nebulosa NTA: buon compleanno e grazie per aver dato spazio alle nostre frequenze più improbabili.",
+      "Sessanta orbite terrestri rilevate. Livello di curiosità: ancora fuori scala."
+    ]
+  }
+]
