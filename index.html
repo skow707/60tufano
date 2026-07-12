@@ -30,54 +30,56 @@
             <div class="scanlines" aria-hidden="true"></div>
             <div class="pixel-noise" aria-hidden="true"></div>
 
-            <section class="scene boot-scene is-active" id="bootScene" aria-labelledby="bootTitle" aria-hidden="false">
-              <div class="boot-header" aria-hidden="true">
-                <span class="boot-dot"></span>
-                <span class="boot-dot"></span>
-                <span class="boot-dot"></span>
-              </div>
-
-              <div class="boot-content">
-                <p class="system-label">Macintosh System 7 / Deep Space Receiver</p>
-                <h1 id="bootTitle">ALIEN TRANSMISSION SYSTEM</h1>
-                <p class="version">Version 6.0</p>
-                <pre id="bootCopy" class="boot-copy" aria-live="polite"></pre>
-                <button class="mac-button primary-button" id="startButton" type="button" disabled>
-                  INIZIA LA TRASMISSIONE
-                </button>
-              </div>
-            </section>
-
-            <section class="scene transmission-scene" id="transmissionScene" aria-labelledby="windowTitle" aria-live="polite" aria-hidden="true">
-              <div class="mac-window main-window" id="mainWindow">
-                <header class="window-titlebar">
-                  <span class="window-grip" aria-hidden="true"></span>
-                  <h2 id="windowTitle">NTA SIGNAL RECEIVER</h2>
-                  <span class="window-box" aria-hidden="true"></span>
-                </header>
-
-                <div class="receiver-status" aria-label="Stato della trasmissione">
-                  <span id="signalLabel">SIGNAL 001</span>
-                  <span id="frequencyLabel">60.0 MHz</span>
+            <div class="desktop-viewport" id="desktopViewport" aria-label="Desktop Macintosh virtuale">
+              <section class="scene boot-scene is-active" id="bootScene" aria-labelledby="bootTitle" aria-hidden="false">
+                <div class="boot-header" aria-hidden="true">
+                  <span class="boot-dot"></span>
+                  <span class="boot-dot"></span>
+                  <span class="boot-dot"></span>
                 </div>
 
-                <article class="alien-card">
-                  <figure class="avatar-frame">
-                    <img id="alienAvatar" src="assets/avatars/veronica.png" alt="Avatar alieno">
-                  </figure>
-                  <p class="alien-name" id="alienName">VERONICA</p>
-                  <blockquote class="alien-message" id="alienMessage">
-                    Sincronizzazione archivio galattico in corso...
-                  </blockquote>
-                </article>
-
-                <footer class="window-actions">
-                  <button class="mac-button next-button" id="nextButton" type="button">
-                    INTERCETTA UN'ALTRA FREQUENZA
+                <div class="boot-content">
+                  <p class="system-label">Macintosh System 7 / Deep Space Receiver</p>
+                  <h1 id="bootTitle">ALIEN TRANSMISSION SYSTEM</h1>
+                  <p class="version">Version 6.0</p>
+                  <pre id="bootCopy" class="boot-copy" aria-live="polite"></pre>
+                  <button class="mac-button primary-button" id="startButton" type="button" disabled>
+                    INIZIA LA TRASMISSIONE
                   </button>
-                </footer>
-              </div>
-            </section>
+                </div>
+              </section>
+
+              <section class="scene transmission-scene" id="transmissionScene" aria-labelledby="windowTitle" aria-live="polite" aria-hidden="true">
+                <div class="mac-window main-window" id="mainWindow">
+                  <header class="window-titlebar">
+                    <button class="window-close-transmission" id="closeTransmission" type="button" aria-label="Chiudi trasmissioni e torna alla home"></button>
+                    <h2 id="windowTitle">NTA SIGNAL RECEIVER</h2>
+                    <span class="window-box" aria-hidden="true"></span>
+                  </header>
+
+                  <div class="receiver-status" aria-label="Stato della trasmissione">
+                    <span id="signalLabel">SIGNAL 001</span>
+                    <span id="frequencyLabel">60.0 MHz</span>
+                  </div>
+
+                  <article class="alien-card">
+                    <figure class="avatar-frame">
+                      <img id="alienAvatar" src="assets/avatars/veronica.png" alt="Avatar alieno">
+                    </figure>
+                    <p class="alien-name" id="alienName">VERONICA</p>
+                    <blockquote class="alien-message" id="alienMessage">
+                      Sincronizzazione archivio galattico in corso...
+                    </blockquote>
+                  </article>
+
+                  <footer class="window-actions">
+                    <button class="mac-button next-button" id="nextButton" type="button">
+                      INTERCETTA UN'ALTRA FREQUENZA
+                    </button>
+                  </footer>
+                </div>
+              </section>
+            </div>
 
             <section class="tufalien-overlay" id="tufalienOverlay" aria-labelledby="tufalienTitle" aria-modal="true" role="dialog" hidden>
               <div class="mac-window tufalien-window" id="tufalienWindow">

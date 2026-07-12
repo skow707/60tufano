@@ -25,7 +25,144 @@ const TUFALIEN = {
   ]
 };
 
+const PREVIEW_ALIENS = [
+  {
+    "name": "Fede",
+    "avatar": "img/fede.png",
+    "messages": [
+      "Tanti auguri prof Tufano!🎉Mi auguro che la sua RAM interiore rimanga sempre libera dalle convenzioni sociali terrestri e piena di idee strambe.",
+      "Il mio consiglio su cosa NON fare nei prossimi anni è sicuramente diventare noioso 😴... ma tanto sappiamo che per lei questo è matematicamente impossibile! Gli alieni di NTA fanno il tifo per lei! 👽❤️."
+    ]
+  },
+  {
+    "name": "Nadia",
+    "avatar": "img/nadia.png",
+    "messages": [
+      "Grazie prof per averci insegnato in un modo che ci permette di applicare concretamente le competenze nella vita di tutti i giorni! Ricorderò sicuramente alcuni argomenti trattati in classe, anche quelli che potrebbero non essere di natura accademica per il resto della mia vita. Le auguro un felicissimo sessantesimo compleanno e spero che gli anni a venire siano pieni solo di pace e gioia!"
+    ]
+  },
+  {
+    "name": "borzi",
+    "avatar": "img/borzi.png",
+    "messages": [
+      "Restare un po' Peter Pan aiuta nella vita così complessa ma meravigliosa, ti auguro di volare sempre🥂."
+    ]
+  },
+  {
+    "name": "Sara",
+    "avatar": "img/sara.png",
+    "messages": [
+      "Tanti auguri prof, continui ad essere la prova vivente che la normalità è sopravvalutata."
+    ]
+  },
+  {
+    "name": "Davido",
+    "avatar": "img/davido.png",
+    "messages": [
+      "come si dice a Napoli: buon compleanno!",
+      "spinello?"
+    ]
+  },
+  {
+    "name": "matilde",
+    "avatar": "img/matilde.png",
+    "messages": [
+      "Abarc non esiste. È tutto nascosto nel rumorio del bla bla. Rilassati."
+    ]
+  },
+  {
+    "name": "Pina",
+    "avatar": "img/Pina.png",
+    "messages": [
+      "Buon compleanno, Giacomo! 🥳 Ti auguro di conservare sempre quella curiosità che ti fa guardare le cose da prospettive diverse. È contagiosa, nel senso migliore. E se qualcuno ti dice che sei un po' fuori dal mondo... è vero ed è anche per questo che tvb assaj 🫂"
+    ]
+  },
+  {
+    "name": "Paola",
+    "avatar": "img/paola.jpg",
+    "messages": [
+      "Messaggio intercettato dal Settore NTA-404. Il soggetto Giacomo Tufano è autorizzato a compiere un’ulteriore orbita attorno al Sole.\n    I parametri di WFMU, strisce a fumetti e livello di negroni nel sangue risultano ancora ben oltre i limiti consentiti!",
+      "Consigli per il futuro: limita i casini da risolvere, ma resta sempre l’uomo che sa aggiustare tutte le cose.\n    Missione autorizzata! Buona orbita."
+    ]
+  },
+  {
+    "name": "Ceccarelli",
+    "avatar": "img/ceccarelli.png",
+    "messages": [
+      "Tantissimi auguri di buon compleanno! Cosa augurarti per il futuro? Novità, Telepatie, Artisticità 🤪👾"
+    ]
+  },
+  {
+    "name": "Monica",
+    "avatar": "img/monica.png",
+    "messages": [
+      "Sono 60 e alla medesima pagina del “manuale pratico di smarrimento” di L. Marone, ho preso un piccolo estratto: “[…] la serendipità a volte ci avvicina alla vita che sta nel mezzo, tra ciò che avevamo pianificato e l’inaspettato. Dovremo imparare a sporcare le agende con gesti inattesi, a infrangere la continuità dei discorsi con una domanda semplice, a infilarci nei pensieri degli altri non per disturbarli, ma per ricordare che esistono”. Buon compleanno Giacomo ♥️"
+    ]
+  },
+  {
+    "name": "Leon",
+    "avatar": "img/leon.png",
+    "messages": [
+      "Mio carissimo professore, tantissimi auguri di buon compleanno!!! 🎂\n    vi auguro tanta felicità, tanta salute e anche tanta di pazienza per sopportare studenti difficili come me 😂voglio anche ringraziare, quando sono venuto da voi per la prima volta, mi ha davvero messo sulla strada giusta. se oggi sono arrivato fin qui, è anche grazie a lei. È un insegnante eccezionale e spero con tutto il cuore che continui a insegnare ancora per tanti anni, persone come lei danno stima di andare avanti a suoi studenti vi auguro tutto il bene del mondo ,e sempre restare così umano ,buono e spiritoso. Grazie di cuore per tutto quello che ha fatto per me. Buon compleanno, professore! vi voglio tanto bene,con abbraccio Leon ❤️."
+    ]
+  },
+  {
+    "name": "Davide",
+    "avatar": "img/davide.png",
+    "messages": [
+      "Caro Giacomo in un giorno come questo, pieno di pensieri, di sogni, di speranza; ricordarti di non dimenticare ciò che vuoi tenere a mente per non scordarti che la memoria è importante solo se il ricordo permane nelle cellule cerebrali."
+    ]
+  },
+  {
+    "name": "Annalara",
+    "avatar": "img/annalara.png",
+    "messages": [
+      "Per te è un 60 e Lode!"
+    ]
+  },
+  {
+    "name": "Sibora",
+    "avatar": "img/sibora.png",
+    "messages": [
+      "Roses are red\n    Violets are blue\n    L'accademia non funziona\n    Solo perché ci sei tu."
+    ]
+  },
+  {
+    "name": "Antonio",
+    "avatar": "img/antonio.png",
+    "messages": [
+      "Secondo me manca un “;” ."
+    ]
+  },
+  {
+    "name": "Veronica",
+    "avatar": "img/veronica.png",
+    "messages": [
+      "Se qualcosa può andare storto lo farà, quindi tanto vale non preoccuparsi affatto!",
+      "Secondo una rarissima estensione della legge di Murphy, il bug più assurdo comparirà sempre cinque minuti prima della consegna oppure quando un UFO sorvola il laboratorio. In entrambi i casi: salva tutto, riavvia e apri una birra.",
+      "package main\n\n    func main() {\n        for {\n            Debug()\n            TrainAliens()\n            DrinkBeer()\n            Laugh()\n        }\n    }\n    Commit: 60 Tuf. Push."
+    ]
+  },
+  {
+    "name": "giacomo",
+    "avatar": "img/giacomo.png",
+    "messages": [
+      "Caro Giacomo, averti incontrato quattro anni fa e avere avuto, da allora, il privilegio di ascoltare i tuoi pensieri, i tuoi giudizi e il tuo modo di guardare il mondo è stato per me una straordinaria occasione di arricchimento intellettuale e, direi, persino filosofico. Di te ammiro profondamente la coerenza morale, l’onestà intellettuale e quella saldezza adamantina dei valori che ti consente di attraversare le cose senza mai tradire te stesso. Per i tuoi sessant’anni ti auguro, innanzitutto, di non perdere mai la tua ironia: un’ironia che può nascere soltanto da un’intelligenza affilatissima, capace di comprendere la realtà e, nello stesso tempo, di prenderne le giuste distanze. Ti auguro di non dover più soffrire per gli affanni e le incombenze del lavoro quotidiano e di poter sorvolare, dall’alto della tua superiorità morale, sulle quisquilie con le quali qualcuno vorrebbe costringerti a confrontarti. Ti auguro di ridere molto: con la tua famiglia, con gli amici, con i tuoi studenti e con tutte le persone che hanno la fortuna di condividere con te un tratto di strada. Hai una risata particolarmente simpatica, sai? Soprattutto, ti auguro di rimanere esattamente la persona che sei già, per altri mille anni almeno. Buon sessantesimo compleanno."
+    ]
+  },
+  {
+    "name": "rori",
+    "avatar": "img/rori.jpeg",
+    "messages": [
+      "Tanti auguri! Grazie per essere una di quelle eccezioni che migliorano il sistema invece di adattarsi a lui! Un algoritmo vivente che integra sapere, ironia e sensibilità e che nonostante tutto non manda mai il programma in crash.",
+      "Dicono che chi nasce nell’anno del Cavallo sia instancabile e con un grande senso dell’umorismo. La tradizione cinese non ha considerato anche che trova sempre una soluzione … e poi riesce pure a farci una battuta!",
+      "Continui a fare la cosa più rivoluzionaria di tutte, condividere non solo conoscenza ma anche umanità… una cosa ormai rara e prima o poi qualcuno proverà a trasformarla in un abbonamento 😉 Doctorow non approverebbe ❤️."
+    ]
+  }
+];
+
 const SOUND_FILES = {
+  alienzip: "alienzip.mp3",
   click: "assets/sounds/click.wav",
   blip: "assets/sounds/blip.wav",
   crt: "assets/sounds/crt.wav",
@@ -34,6 +171,7 @@ const SOUND_FILES = {
 };
 
 const SOUND_VOLUME = {
+  alienzip: 0.24,
   click: 0.35,
   blip: 0.28,
   crt: 0.13,
@@ -62,8 +200,10 @@ const elements = {
   bootScene: document.querySelector("#bootScene"),
   transmissionScene: document.querySelector("#transmissionScene"),
   bootCopy: document.querySelector("#bootCopy"),
+  desktopViewport: document.querySelector("#desktopViewport"),
   startButton: document.querySelector("#startButton"),
   nextButton: document.querySelector("#nextButton"),
+  closeTransmission: document.querySelector("#closeTransmission"),
   mainWindow: document.querySelector("#mainWindow"),
   alienCard: document.querySelector(".alien-card"),
   alienAvatar: document.querySelector("#alienAvatar"),
@@ -90,12 +230,16 @@ function init() {
   bindEvents();
   typeBootText();
   loadAliens();
+  playHomeLoop();
 }
 
 function bindEvents() {
   elements.startButton.addEventListener("click", startExperience);
   elements.nextButton.addEventListener("click", requestTransmission);
+  elements.closeTransmission.addEventListener("click", returnHome);
   elements.closeTufalien.addEventListener("click", dismissTufalien);
+  document.addEventListener("pointerdown", unlockAudioFromHome, { once: true });
+  document.addEventListener("keydown", unlockAudioFromHome, { once: true });
 
   elements.tufalienOverlay.addEventListener("click", (event) => {
     if (event.target === elements.tufalienOverlay || elements.tufalienWindow.contains(event.target)) {
@@ -121,6 +265,8 @@ function bindEvents() {
 }
 
 async function loadAliens() {
+  let aliens = PREVIEW_ALIENS;
+
   try {
     const response = await fetch(DATA_URL, { cache: "no-store" });
 
@@ -128,7 +274,12 @@ async function loadAliens() {
       throw new Error(`Archivio non raggiungibile: ${response.status}`);
     }
 
-    const aliens = await response.json();
+    aliens = await response.json();
+  } catch (error) {
+    console.info("Archivio JSON non caricato, uso i messaggi di anteprima incorporati.", error);
+  }
+
+  try {
     state.aliens = validateAliens(aliens);
     state.deck = shuffleAliens(state.aliens);
     state.dataReady = true;
@@ -211,10 +362,12 @@ function startExperience() {
   }
 
   unlockAudio();
+  pauseSound("alienzip");
   playSound("click");
   playCrtHum();
   state.started = true;
   window.scrollTo(0, 0);
+  resetDesktopScroll();
   elements.body.classList.add("is-starting");
   flashScreen();
 
@@ -225,6 +378,31 @@ function startExperience() {
     elements.transmissionScene.setAttribute("aria-hidden", "false");
     showNormalTransmission();
   }, state.reducedMotion ? 0 : 520);
+}
+
+function returnHome() {
+  if (!state.started) {
+    return;
+  }
+
+  unlockAudio();
+  playSound("click");
+  hideTufalienOverlay();
+  pauseSound("crt");
+  state.started = false;
+  state.currentSignal = 0;
+  state.clicksSinceTufalien = 0;
+  state.deck = shuffleAliens(state.aliens);
+  elements.body.classList.remove("is-starting", "tufalien-mode");
+  elements.mainWindow.classList.remove("is-tuning");
+  elements.transmissionScene.classList.remove("is-active");
+  elements.transmissionScene.setAttribute("aria-hidden", "true");
+  elements.bootScene.classList.add("is-active");
+  elements.bootScene.setAttribute("aria-hidden", "false");
+  resetDesktopScroll();
+  flashScreen();
+  playHomeLoop();
+  elements.startButton.focus({ preventScroll: true });
 }
 
 function requestTransmission() {
@@ -263,8 +441,27 @@ function showNormalTransmission() {
   elements.signalLabel.textContent = `SIGNAL ${String(state.currentSignal).padStart(3, "0")}`;
   elements.frequencyLabel.textContent = `${createFrequency()} MHz`;
 
+  resetDesktopScroll();
   playSound("blip");
   revealAlienCard();
+}
+
+function resetDesktopScroll() {
+  scrollDesktopToTop();
+
+  requestAnimationFrame(() => {
+    scrollDesktopToTop();
+    window.setTimeout(scrollDesktopToTop, 80);
+  });
+}
+
+function scrollDesktopToTop() {
+  if (!elements.desktopViewport) {
+    return;
+  }
+
+  elements.desktopViewport.scrollTop = 0;
+  elements.desktopViewport.scrollLeft = 0;
 }
 
 function drawAlien() {
@@ -330,6 +527,14 @@ function showTufalien() {
   state.tufalienTimer = window.setTimeout(dismissTufalien, state.reducedMotion ? 1200 : 5600);
 }
 
+function hideTufalienOverlay() {
+  window.clearTimeout(state.tufalienTimer);
+  state.closingTufalien = false;
+  elements.tufalienOverlay.classList.remove("is-visible");
+  elements.tufalienOverlay.hidden = true;
+  elements.crtScreen.classList.remove("has-interference");
+}
+
 function dismissTufalien() {
   if (elements.tufalienOverlay.hidden || state.closingTufalien) {
     return;
@@ -377,7 +582,7 @@ function prepareAudio() {
     audio.preload = "auto";
     audio.volume = SOUND_VOLUME[name] ?? 0.3;
 
-    if (name === "crt") {
+    if (name === "crt" || name === "alienzip") {
       audio.loop = true;
     }
 
@@ -391,6 +596,44 @@ function unlockAudio() {
   }
 
   state.audioUnlocked = true;
+}
+
+function unlockAudioFromHome() {
+  unlockAudio();
+
+  if (!state.started) {
+    playHomeLoop();
+  }
+}
+
+function playHomeLoop() {
+  if (state.started) {
+    return;
+  }
+
+  playLoopingSound("alienzip");
+}
+
+function playLoopingSound(name) {
+  const audio = audioClips.get(name);
+
+  if (!audio || !audio.paused) {
+    return;
+  }
+
+  audio.volume = SOUND_VOLUME[name] ?? 0.3;
+  audio.play().catch(() => {});
+}
+
+function pauseSound(name) {
+  const audio = audioClips.get(name);
+
+  if (!audio) {
+    return;
+  }
+
+  audio.pause();
+  audio.currentTime = 0;
 }
 
 function playSound(name) {
