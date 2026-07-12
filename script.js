@@ -79,12 +79,12 @@ const PREVIEW_ALIENS = [
     "name": "Paola",
     "avatar": "img/paola.jpg",
     "messages": [
-      "Messaggio intercettato dal Settore NTA-404. Il soggetto Giacomo Tufano è autorizzato a compiere un’ulteriore orbita attorno al Sole. \n I parametri di WFMU, strisce a fumetti e livello di negroni nel sangue risultano ancora ben oltre i limiti consentiti!Consigli per il futuro: limita i casini da risolvere, ma resta sempre l’uomo che sa aggiustare tutte le cose.\n Missione autorizzata! Buona orbita."
+      "Messaggio intercettato dal Settore NTA-404. Il soggetto Giacomo Tufano è autorizzato a compiere un’ulteriore orbita attorno al Sole. \n I parametri di WFMU, strisce a fumetti e livello di negroni nel sangue risultano ancora ben oltre i limiti consentiti! Consigli per il futuro: limita i casini da risolvere, ma resta sempre l’uomo che sa aggiustare tutte le cose.\n Missione autorizzata! Buona orbita."
     ]
   },
   {
     "name": "Francesca",
-    "avatar": "img/ceccarelli.png",
+    "avatar": "img/francesca.png",
     "messages": [
       "Tantissimi auguri di buon compleanno! Cosa augurarti per il futuro? Novità, Telepatie, Artisticità 🤪👾"
     ]
