@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
+    <audio id="homeAlienAudio" src="alienzip.mp3" preload="auto" autoplay loop playsinline></audio>
+
     <main class="experience" aria-label="Alien Transmission System">
       <div class="space-field" aria-hidden="true">
         <div class="star-layer star-layer-one"></div>
@@ -43,6 +45,12 @@
                   <h1 id="bootTitle">ALIEN TRANSMISSION SYSTEM</h1>
                   <p class="version">Version 6.0</p>
                   <pre id="bootCopy" class="boot-copy" aria-live="polite"></pre>
+                  <div class="audio-permission" id="audioPermissionPanel">
+                    <p>Segnale audio alieno in attesa di autorizzazione.</p>
+                    <button class="mac-button audio-button" id="audioPermissionButton" type="button">
+                      AUTORIZZA SEGNALE AUDIO
+                    </button>
+                  </div>
                   <button class="mac-button primary-button" id="startButton" type="button" disabled>
                     INIZIA LA TRASMISSIONE
                   </button>

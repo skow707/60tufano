@@ -54,8 +54,8 @@
     "name": "Paola",
     "avatar": "img/paola.jpg",
     "messages": [
-      "Messaggio intercettato dal Settore NTA-404. Il soggetto Giacomo Tufano è autorizzato a compiere un’ulteriore orbita attorno al Sole.\n    I parametri di WFMU, strisce a fumetti e livello di negroni nel sangue risultano ancora ben oltre i limiti consentiti!",
-      "Consigli per il futuro: limita i casini da risolvere, ma resta sempre l’uomo che sa aggiustare tutte le cose.\n    Missione autorizzata! Buona orbita."
+      "Messaggio intercettato dal Settore NTA-404. Il soggetto Giacomo Tufano è autorizzato a compiere un’ulteriore orbita attorno al Sole.",
+      "I parametri di WFMU, strisce a fumetti e livello di negroni nel sangue risultano ancora ben oltre i limiti consentiti!Consigli per il futuro: limita i casini da risolvere, ma resta sempre l’uomo che sa aggiustare tutte le cose.Missione autorizzata! Buona orbita."
     ]
   },
   {
@@ -84,6 +84,13 @@
     "avatar": "img/davide.png",
     "messages": [
       "Caro Giacomo in un giorno come questo, pieno di pensieri, di sogni, di speranza; ricordarti di non dimenticare ciò che vuoi tenere a mente per non scordarti che la memoria è importante solo se il ricordo permane nelle cellule cerebrali."
+    ]
+  },
+  {
+    "name": "Peppe",
+    "avatar": "img/peppe.png",
+    "messages": [
+      "Buon 60° compleanno, Prof! Congratulazioni per il rilascio della versione 6.0! sei ancora il progetto open source più fuori dagli schemi che conosco! Grazie per averci fatto sopravvivere a GitHub, per averci fatto litigare con SwiftUI, esplorare HTML e anche scoprire che Blowfish può essere più simpatico di quanto sembri.Continua a dimostrarci che la curiosità non va mai in pensione... si aggiorna soltanto. Happy Birthday, Prof! E ricorda: i 60 sono solo un numero... come una variabile, basta dichiararla nel modo giusto!"
     ]
   },
   {

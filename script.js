@@ -13,7 +13,7 @@ Premi il pulsante per iniziare.`;
 
 const TUFALIEN = {
   name: "TUFALIEN",
-  avatar: "assets/avatars/tufalien.png",
+  avatar: "img/tufalien.png",
   messages: [
     "Ragazzi...",
     "Questa cosa va approfondita.",
@@ -81,8 +81,8 @@ const PREVIEW_ALIENS = [
     "name": "Paola",
     "avatar": "img/paola.jpg",
     "messages": [
-      "Messaggio intercettato dal Settore NTA-404. Il soggetto Giacomo Tufano è autorizzato a compiere un’ulteriore orbita attorno al Sole.\n    I parametri di WFMU, strisce a fumetti e livello di negroni nel sangue risultano ancora ben oltre i limiti consentiti!",
-      "Consigli per il futuro: limita i casini da risolvere, ma resta sempre l’uomo che sa aggiustare tutte le cose.\n    Missione autorizzata! Buona orbita."
+      "Messaggio intercettato dal Settore NTA-404. Il soggetto Giacomo Tufano è autorizzato a compiere un’ulteriore orbita attorno al Sole.",
+      "I parametri di WFMU, strisce a fumetti e livello di negroni nel sangue risultano ancora ben oltre i limiti consentiti!Consigli per il futuro: limita i casini da risolvere, ma resta sempre l’uomo che sa aggiustare tutte le cose.Missione autorizzata! Buona orbita."
     ]
   },
   {
@@ -111,6 +111,13 @@ const PREVIEW_ALIENS = [
     "avatar": "img/davide.png",
     "messages": [
       "Caro Giacomo in un giorno come questo, pieno di pensieri, di sogni, di speranza; ricordarti di non dimenticare ciò che vuoi tenere a mente per non scordarti che la memoria è importante solo se il ricordo permane nelle cellule cerebrali."
+    ]
+  },
+  {
+    "name": "Peppe",
+    "avatar": "img/peppe.png",
+    "messages": [
+      "Buon 60° compleanno, Prof! Congratulazioni per il rilascio della versione 6.0! sei ancora il progetto open source più fuori dagli schemi che conosco! Grazie per averci fatto sopravvivere a GitHub, per averci fatto litigare con SwiftUI, esplorare HTML e anche scoprire che Blowfish può essere più simpatico di quanto sembri.Continua a dimostrarci che la curiosità non va mai in pensione... si aggiorna soltanto. Happy Birthday, Prof! E ricorda: i 60 sono solo un numero... come una variabile, basta dichiararla nel modo giusto!"
     ]
   },
   {
@@ -189,6 +196,8 @@ const state = {
   dataReady: false,
   started: false,
   audioUnlocked: false,
+  homeAudioStarted: false,
+  homeAudioRetryTimer: 0,
   tufalienTimer: 0,
   closingTufalien: false,
   reducedMotion: window.matchMedia("(prefers-reduced-motion: reduce)").matches
@@ -201,6 +210,9 @@ const elements = {
   transmissionScene: document.querySelector("#transmissionScene"),
   bootCopy: document.querySelector("#bootCopy"),
   desktopViewport: document.querySelector("#desktopViewport"),
+  homeAlienAudio: document.querySelector("#homeAlienAudio"),
+  audioPermissionPanel: document.querySelector("#audioPermissionPanel"),
+  audioPermissionButton: document.querySelector("#audioPermissionButton"),
   startButton: document.querySelector("#startButton"),
   nextButton: document.querySelector("#nextButton"),
   closeTransmission: document.querySelector("#closeTransmission"),
@@ -230,7 +242,7 @@ function init() {
   bindEvents();
   typeBootText();
   loadAliens();
-  playHomeLoop();
+  startHomeAudio();
 }
 
 function bindEvents() {
@@ -238,8 +250,8 @@ function bindEvents() {
   elements.nextButton.addEventListener("click", requestTransmission);
   elements.closeTransmission.addEventListener("click", returnHome);
   elements.closeTufalien.addEventListener("click", dismissTufalien);
-  document.addEventListener("pointerdown", unlockAudioFromHome, { once: true });
-  document.addEventListener("keydown", unlockAudioFromHome, { once: true });
+  elements.audioPermissionButton.addEventListener("click", authorizeHomeAudio);
+  addHomeAudioUnlockListeners();
 
   elements.tufalienOverlay.addEventListener("click", (event) => {
     if (event.target === elements.tufalienOverlay || elements.tufalienWindow.contains(event.target)) {
@@ -363,6 +375,8 @@ function startExperience() {
 
   unlockAudio();
   pauseSound("alienzip");
+  state.homeAudioStarted = false;
+  stopHomeAudioRetry();
   playSound("click");
   playCrtHum();
   state.started = true;
@@ -401,7 +415,7 @@ function returnHome() {
   elements.bootScene.setAttribute("aria-hidden", "false");
   resetDesktopScroll();
   flashScreen();
-  playHomeLoop();
+  startHomeAudio();
   elements.startButton.focus({ preventScroll: true });
 }
 
@@ -578,7 +592,14 @@ function createFrequency() {
 
 function prepareAudio() {
   Object.entries(SOUND_FILES).forEach(([name, source]) => {
-    const audio = new Audio(source);
+    const audio = name === "alienzip" && elements.homeAlienAudio
+      ? elements.homeAlienAudio
+      : new Audio(source);
+
+    if (!audio.getAttribute("src")) {
+      audio.setAttribute("src", source);
+    }
+
     audio.preload = "auto";
     audio.volume = SOUND_VOLUME[name] ?? 0.3;
 
@@ -602,27 +623,86 @@ function unlockAudioFromHome() {
   unlockAudio();
 
   if (!state.started) {
-    playHomeLoop();
+    startHomeAudio();
   }
 }
 
-function playHomeLoop() {
+function authorizeHomeAudio() {
+  unlockAudio();
+  elements.audioPermissionButton.disabled = true;
+  elements.audioPermissionButton.textContent = "SINCRONIZZAZIONE...";
+
+  startHomeAudio().then((started) => {
+    if (started) {
+      markHomeAudioAuthorized();
+      return;
+    }
+
+    elements.audioPermissionButton.disabled = false;
+    elements.audioPermissionButton.textContent = "RIPROVA SEGNALE AUDIO";
+  });
+}
+
+function markHomeAudioAuthorized() {
+  elements.audioPermissionPanel.classList.add("is-authorized");
+  elements.audioPermissionButton.disabled = true;
+  elements.audioPermissionButton.textContent = "SEGNALE AUDIO ATTIVO";
+}
+
+function addHomeAudioUnlockListeners() {
+  document.addEventListener("pointerdown", unlockAudioFromHome, { passive: true });
+  document.addEventListener("click", unlockAudioFromHome);
+  document.addEventListener("touchstart", unlockAudioFromHome, { passive: true });
+  document.addEventListener("keydown", unlockAudioFromHome);
+}
+
+function removeHomeAudioUnlockListeners() {
+  document.removeEventListener("pointerdown", unlockAudioFromHome);
+  document.removeEventListener("click", unlockAudioFromHome);
+  document.removeEventListener("touchstart", unlockAudioFromHome);
+  document.removeEventListener("keydown", unlockAudioFromHome);
+}
+
+function startHomeAudio() {
   if (state.started) {
-    return;
+    return Promise.resolve(false);
   }
 
-  playLoopingSound("alienzip");
+  return playLoopingSound("alienzip").then((started) => {
+    if (started) {
+      state.homeAudioStarted = true;
+      markHomeAudioAuthorized();
+      stopHomeAudioRetry();
+      removeHomeAudioUnlockListeners();
+    } else if (!state.started) {
+      scheduleHomeAudioRetry();
+    }
+
+    return started;
+  });
+}
+
+function scheduleHomeAudioRetry() {
+  window.clearTimeout(state.homeAudioRetryTimer);
+  state.homeAudioRetryTimer = window.setTimeout(startHomeAudio, 1200);
+}
+
+function stopHomeAudioRetry() {
+  window.clearTimeout(state.homeAudioRetryTimer);
+  state.homeAudioRetryTimer = 0;
 }
 
 function playLoopingSound(name) {
   const audio = audioClips.get(name);
 
   if (!audio || !audio.paused) {
-    return;
+    return Promise.resolve(Boolean(audio));
   }
 
   audio.volume = SOUND_VOLUME[name] ?? 0.3;
-  audio.play().catch(() => {});
+  return audio.play()
+    .then(() => true)
+    .catch(() => false);
 }
 
 function pauseSound(name) {
@@ -634,6 +714,11 @@ function pauseSound(name) {
 
   audio.pause();
   audio.currentTime = 0;
+
+  if (name === "alienzip") {
+    state.homeAudioStarted = false;
+    addHomeAudioUnlockListeners();
+  }
 }
 
 function playSound(name) {
