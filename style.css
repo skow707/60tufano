@@ -363,6 +363,14 @@ img {
   box-shadow: 8px 8px 0 rgba(23, 23, 20, 0.2);
 }
 
+.boot-content.is-awaiting-audio .system-label,
+.boot-content.is-awaiting-audio h1,
+.boot-content.is-awaiting-audio .version,
+.boot-content.is-awaiting-audio .boot-copy,
+.boot-content.is-awaiting-audio .primary-button {
+  display: none;
+}
+
 .system-label,
 .version {
   margin: 0;
@@ -629,10 +637,27 @@ img {
   text-align: center;
 }
 
+.alien-message.is-code {
+  width: min(100%, 34rem);
+  padding: 12px;
+  border: 2px solid rgba(23, 23, 20, 0.72);
+  background: #eef0df;
+  color: #173c24;
+  font-family: var(--font-mono);
+  font-size: clamp(0.78rem, 1.6vw, 1rem);
+  line-height: 1.36;
+  text-align: left;
+}
+
 .alien-message::before,
 .alien-message::after {
   color: var(--accent-red);
   font-weight: 800;
+}
+
+.alien-message.is-code::before,
+.alien-message.is-code::after {
+  content: "";
 }
 
 .alien-message::before {

@@ -192,7 +192,9 @@ const state = {
   lastAlienName: "",
   currentSignal: 0,
   clicksSinceTufalien: 0,
+  audioAuthorized: false,
   bootTyped: false,
+  bootTypingStarted: false,
   dataReady: false,
   started: false,
   audioUnlocked: false,
@@ -206,6 +208,7 @@ const state = {
 const elements = {
   body: document.body,
   crtScreen: document.querySelector("#crtScreen"),
+  bootContent: document.querySelector("#bootContent"),
   bootScene: document.querySelector("#bootScene"),
   transmissionScene: document.querySelector("#transmissionScene"),
   bootCopy: document.querySelector("#bootCopy"),
@@ -225,6 +228,7 @@ const elements = {
   frequencyLabel: document.querySelector("#frequencyLabel"),
   tufalienOverlay: document.querySelector("#tufalienOverlay"),
   tufalienWindow: document.querySelector("#tufalienWindow"),
+  tufalienAvatar: document.querySelector("#tufalienAvatar"),
   tufalienMessage: document.querySelector("#tufalienMessage"),
   closeTufalien: document.querySelector("#closeTufalien"),
   particles: document.querySelector("[data-particles]"),
@@ -240,9 +244,7 @@ function init() {
   createAmbientParticles();
   createShips();
   bindEvents();
-  typeBootText();
   loadAliens();
-  startHomeAudio();
 }
 
 function bindEvents() {
@@ -251,7 +253,6 @@ function bindEvents() {
   elements.closeTransmission.addEventListener("click", returnHome);
   elements.closeTufalien.addEventListener("click", dismissTufalien);
   elements.audioPermissionButton.addEventListener("click", authorizeHomeAudio);
-  addHomeAudioUnlockListeners();
 
   elements.tufalienOverlay.addEventListener("click", (event) => {
     if (event.target === elements.tufalienOverlay || elements.tufalienWindow.contains(event.target)) {
@@ -452,6 +453,7 @@ function showNormalTransmission() {
   elements.alienAvatar.alt = `Avatar alieno di ${alien.name}`;
   elements.alienName.textContent = alien.name;
   elements.alienMessage.textContent = message;
+  elements.alienMessage.classList.toggle("is-code", isCodeMessage(message));
   elements.signalLabel.textContent = `SIGNAL ${String(state.currentSignal).padStart(3, "0")}`;
   elements.frequencyLabel.textContent = `${createFrequency()} MHz`;
 
@@ -525,6 +527,8 @@ function showTufalien() {
   const message = pickRandom(TUFALIEN.messages);
 
   state.closingTufalien = false;
+  elements.tufalienAvatar.src = TUFALIEN.avatar;
+  elements.tufalienAvatar.alt = `Avatar ${TUFALIEN.name}`;
   elements.tufalienMessage.textContent = message;
   elements.tufalienOverlay.hidden = false;
   elements.crtScreen.classList.add("has-interference");
@@ -590,6 +594,10 @@ function createFrequency() {
   return base.toFixed(1);
 }
 
+function isCodeMessage(message) {
+  return /\bpackage\s+main\b|func\s+main\(\)|Commit:\s*60\s*Tuf/i.test(message);
+}
+
 function prepareAudio() {
   Object.entries(SOUND_FILES).forEach(([name, source]) => {
     const audio = name === "alienzip" && elements.homeAlienAudio
@@ -621,32 +629,44 @@ function unlockAudio() {
 
 function unlockAudioFromHome() {
   unlockAudio();
+  keepHomeAudioAlive();
+}
 
-  if (!state.started) {
-    startHomeAudio();
+function keepHomeAudioAlive() {
+  if (!state.audioAuthorized || state.started) {
+    return;
   }
+
+  startHomeAudio();
 }
 
 function authorizeHomeAudio() {
   unlockAudio();
-  elements.audioPermissionButton.disabled = true;
-  elements.audioPermissionButton.textContent = "SINCRONIZZAZIONE...";
-
-  startHomeAudio().then((started) => {
-    if (started) {
-      markHomeAudioAuthorized();
-      return;
-    }
-
-    elements.audioPermissionButton.disabled = false;
-    elements.audioPermissionButton.textContent = "RIPROVA SEGNALE AUDIO";
-  });
+  markHomeAudioAuthorized();
+  startHomeAudio();
 }
 
 function markHomeAudioAuthorized() {
+  if (state.audioAuthorized) {
+    return;
+  }
+
+  state.audioAuthorized = true;
   elements.audioPermissionPanel.classList.add("is-authorized");
   elements.audioPermissionButton.disabled = true;
-  elements.audioPermissionButton.textContent = "SEGNALE AUDIO ATTIVO";
+  elements.audioPermissionButton.textContent = "AUDIO AUTORIZZATO";
+  elements.bootContent.classList.remove("is-awaiting-audio");
+  addHomeAudioUnlockListeners();
+  startBootSequence();
+}
+
+function startBootSequence() {
+  if (state.bootTypingStarted) {
+    return;
+  }
+
+  state.bootTypingStarted = true;
+  typeBootText();
 }
 
 function addHomeAudioUnlockListeners() {
