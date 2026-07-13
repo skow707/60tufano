@@ -53,27 +53,6 @@ const PREVIEW_ALIENS = [
       "Tanti auguri prof, continui ad essere la prova vivente che la normalità è sopravvalutata."
     ]
   },
-   {
-    "name": "Aly",
-    "avatar": "img/aly.png",
-    "messages": [
-      "L'età è solo un numero, buon compleanno!🥳"
-    ]
-  },
-  {
-    "name": "Ila",
-    "avatar": "img/ila.png",
-    "messages": [
-      "Auguri al prof con il codino più bello!"
-    ]
-  },
-  {
-    "name": "Aldo",
-    "avatar": "img/aldo.png",
-    "messages": [
-      "⭐⭐⭐⭐⭐ \n «Software solido di rara qualità: gira da anni senza crash gravi e regge carichi di studenti rincoglioniti. Interfaccia vintage, ma ormai è un’estetica. Forte nel debug, è l unico abonamento che farei a vita🫶🏻>>"
-    ]
-  },
   {
     "name": "Davido",
     "avatar": "img/davido.png",
@@ -191,17 +170,39 @@ const PREVIEW_ALIENS = [
       "Già come mago silvano,\n unisce il codice al gesto umano.\n Là n.T.i., qui N.T.A.: chi osserva impara,\n chi crea prepara;\nsi mettono in libertà\n e tu fanno il resto con mano."
     ]
   },
-   {
+  {
     "name": "Zappone",
     "avatar": "img/zappone.png",
     "messages": [
       "Per Tufano, brindisi al volo con il calice in mano: Allerta caldo, fuori si schiatta. Prendo un bianco dal frigo, dentro lo studio che è una stufa. Brindisi faccio al Tufa. 🥂"
     ]
   },
-  { "name": "Sara B.",
+  {
+    "name": "Sara B.",
     "avatar": "img/sarab.png",
     "messages": [
       "Trasmissione intergalattica in arrivo... 👾 Tanti auguri di buon compleanno! Da oggi ha ufficialmente raggiunto il livello +1 di esperienza. \n Skill sbloccata: sopravvivere con stile 😎 \n Dopo aver analizzato l'intero pianeta Terra, il Consiglio Galattico è giunto alla conclusione che è tra gli umani più interessanti in circolazione. Che il suo upgrade prosegua senza bug e ancora tantissimi auguri! 🚀😘"
+    ]
+  },
+  {
+    "name": "Aly",
+    "avatar": "img/aly.png",
+    "messages": [
+      "L'età è solo un numero, buon compleanno! 🥳"
+    ]
+  },
+  {
+    "name": "Ila",
+    "avatar": "img/ila.png",
+    "messages": [
+      "Auguri al prof con il codino più bello!"
+    ]
+  },
+  {
+    "name": "Aldo",
+    "avatar": "img/aldo.png",
+    "messages": [
+      "⭐⭐⭐⭐⭐ \n «Software solido di rara qualità: gira da anni senza crash gravi e regge carichi di studenti rincoglioniti. Interfaccia vintage, ma ormai è un’estetica. Forte nel debug, è l unico abonamento che farei a vita🫶🏻>>"
     ]
   }
 ];
@@ -227,6 +228,8 @@ const SOUND_VOLUME = {
 const state = {
   aliens: [],
   deck: [],
+  readMessageIndexes: new Map(),
+  lastMessageIndexes: new Map(),
   lastAlienName: "",
   currentSignal: 0,
   clicksSinceTufalien: 0,
@@ -332,7 +335,7 @@ async function loadAliens() {
 
   try {
     state.aliens = validateAliens(aliens);
-    state.deck = shuffleAliens(state.aliens);
+    resetTransmissionQueues();
     state.dataReady = true;
     updateStartAvailability();
   } catch (error) {
@@ -482,7 +485,7 @@ function requestTransmission() {
 
 function showNormalTransmission() {
   const alien = drawAlien();
-  const message = pickRandom(alien.messages);
+  const message = drawAlienMessage(alien);
 
   state.currentSignal += 1;
   state.lastAlienName = alien.name;
@@ -524,6 +527,35 @@ function drawAlien() {
   }
 
   return state.deck.pop();
+}
+
+function drawAlienMessage(alien) {
+  if (alien.messages.length === 1) {
+    return alien.messages[0];
+  }
+
+  const messageIndexes = alien.messages.map((_, index) => index);
+  const readIndexes = state.readMessageIndexes.get(alien.name) ?? new Set();
+  let availableIndexes = messageIndexes.filter((index) => !readIndexes.has(index));
+
+  if (!availableIndexes.length) {
+    readIndexes.clear();
+    availableIndexes = messageIndexes.filter((index) => index !== state.lastMessageIndexes.get(alien.name));
+  }
+
+  const messageIndex = pickRandom(availableIndexes.length ? availableIndexes : messageIndexes);
+  readIndexes.add(messageIndex);
+  state.readMessageIndexes.set(alien.name, readIndexes);
+  state.lastMessageIndexes.set(alien.name, messageIndex);
+
+  return alien.messages[messageIndex];
+}
+
+function resetTransmissionQueues() {
+  state.deck = shuffleAliens(state.aliens);
+  state.readMessageIndexes.clear();
+  state.lastMessageIndexes.clear();
+  state.lastAlienName = "";
 }
 
 function shuffleAliens(aliens, avoidFirstName = "") {
