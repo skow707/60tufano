@@ -53,6 +53,27 @@ const PREVIEW_ALIENS = [
       "Tanti auguri prof, continui ad essere la prova vivente che la normalità è sopravvalutata."
     ]
   },
+   {
+    "name": "Aly",
+    "avatar": "img/aly.png",
+    "messages": [
+      "L'età è solo un numero, buon compleanno!🥳"
+    ]
+  },
+  {
+    "name": "Ila",
+    "avatar": "img/ila.png",
+    "messages": [
+      "Auguri al prof con il codino più bello!"
+    ]
+  },
+  {
+    "name": "Aldo",
+    "avatar": "img/aldo.png",
+    "messages": [
+      "⭐⭐⭐⭐⭐ \n «Software solido di rara qualità: gira da anni senza crash gravi e regge carichi di studenti rincoglioniti. Interfaccia vintage, ma ormai è un’estetica. Forte nel debug, è l unico abonamento che farei a vita🫶🏻>>"
+    ]
+  },
   {
     "name": "Davido",
     "avatar": "img/davido.png",

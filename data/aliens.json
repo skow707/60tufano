@@ -31,10 +31,7 @@
   {
     "name": "Davido",
     "avatar": "img/davido.png",
-    "messages": [
-      "come si dice a Napoli: buon compleanno!",
-      "spinello?"
-    ]
+    "messages": ["come si dice a Napoli: buon compleanno!", "spinello?"]
   },
   {
     "name": "matilde",
@@ -95,9 +92,7 @@
   {
     "name": "Annalara",
     "avatar": "img/annalara.png",
-    "messages": [
-      "Per te è un 60 e Lode!"
-    ]
+    "messages": ["Per te è un 60 e Lode!"]
   },
   {
     "name": "Sibora",
@@ -109,9 +104,7 @@
   {
     "name": "Antonio",
     "avatar": "img/antonio.png",
-    "messages": [
-      "Secondo me manca un “;” ."
-    ]
+    "messages": ["Secondo me manca un “;” ."]
   },
   {
     "name": "Veronica",
@@ -158,5 +151,20 @@
     "messages": [
       "Trasmissione intergalattica in arrivo... 👾 Tanti auguri di buon compleanno! Da oggi ha ufficialmente raggiunto il livello +1 di esperienza. \n Skill sbloccata: sopravvivere con stile 😎 \n Dopo aver analizzato l'intero pianeta Terra, il Consiglio Galattico è giunto alla conclusione che è tra gli umani più interessanti in circolazione. Che il suo upgrade prosegua senza bug e ancora tantissimi auguri! 🚀😘"
     ]
+  },
+  {
+    "name": "Aly",
+    "avatar": "img/aly.png",
+    "messages": ["L'età è solo un numero, buon compleanno! 🥳"]
+  },
+  {
+    "name": "Ila",
+    "avatar": "img/ila.png",
+    "messages": ["Auguri al prof con il codino più bello!"]
+  },
+  {
+    "name": "Aldo",
+    "avatar": "img/aldo.png",
+    "messages": ["⭐⭐⭐⭐⭐ \n «Software solido di rara qualità: gira da anni senza crash gravi e regge carichi di studenti rincoglioniti. Interfaccia vintage, ma ormai è un’estetica. Forte nel debug, è l unico abonamento che farei a vita🫶🏻>>"]
   }
 ]
